@@ -45,14 +45,35 @@ public class Tablero {
 	}
 	public synchronized void moverIzq(Explorador e){
 		//Si la celda esta ocupada, se quedara bloqueado hasta tanto se libere
+		/*
+		while(this.posOcupada(x,y)){
+		    wait();
+		}
+		mover
+		signalAll();
+		*/
 	}
 	public synchronized void moverNorte(Explorador e){
-		//Solo lo podra hacer si cuenta con al menos un compañero en alguna de las celdas contiguas laterales o traseras. 
+		//Solo lo podra hacer si cuenta con al menos un compañero en alguna de las celdas contiguas laterales. 
 		//Si no puede avanzar, se quedara bloqueado hasta tanto llegue un compañero a una celda contigua.
+		/*
+		while(this.celdasContiguasDesocupadas(x,y)){
+		    wait();
+		}
+		mover
+		signalAll();
+		*/
 	}
 	public synchronized void moverSur(Explorador e){
-		//Solo lo podra hacer si cuenta con al menos un compañero en alguna de las celdas contiguas laterales o traseras. 
+		//Solo lo podra hacer si cuenta con al menos un compañero en alguna de las celdas contiguas laterales. 
 		//Si no puede avanzar, se quedara bloqueado hasta tanto llegue un compañero a una celda contigua.
+		/*
+		while(this.celdasContiguasDesocupadas(x,y)){
+		    wait();
+		}
+		mover
+		signalAll();
+		*/
 	}
 	
 	//--------------------------------------------------------------------
