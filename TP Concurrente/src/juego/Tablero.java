@@ -26,7 +26,12 @@ public class Tablero {
 		return this.norte.tesorosConquistados() || this.sur.tesorosConquistados();
 	}
 	
-	public void iniciar() {	}
+	public void iniciar() {
+		//...
+		this.norte.start();
+		this.sur.start();
+		//...
+	}
 	
 	public synchronized void moverDer(Explorador e){
 		//Si la celda esta ocupada, se quedara bloqueado hasta tanto se libere
