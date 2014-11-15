@@ -3,11 +3,8 @@ package juego;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Equipo {
-	
+public class Equipo extends Thread{	
 		
-	private Tablero tablero;
-	
 	private List<Explorador> exploradores = new ArrayList<Explorador>();
 	private List<Tesoro> tesoros = new ArrayList<Tesoro>();
 
@@ -20,14 +17,7 @@ public class Equipo {
 			e.start();
 		}
 	}
-	
-	public void agregarExplorador(Explorador e){
-		this.exploradores.add(e);
-	}
-	public void agregarTesoro(Tesoro t){
-		this.tesoros.add(t);
-	}
-	
+		
 	public boolean tesorosConquistados() {
 		boolean ret = true;
 		for(Tesoro t: this.tesoros){
@@ -36,16 +26,14 @@ public class Equipo {
 		return ret;
 	}
 
-	//--------------------------------------------------------------------
-	
-	public Tablero getTablero() {
-		return tablero;
-	}
+	//--------------------------------------------------------------------	
 
-	public void setTablero(Tablero tablero) {
-		this.tablero = tablero;
+	public void agregarExplorador(Explorador e){
+		this.exploradores.add(e);
 	}
-
+	public void agregarTesoro(Tesoro t){
+		this.tesoros.add(t);
+	}
 	
 	
 }
