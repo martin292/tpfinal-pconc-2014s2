@@ -1,8 +1,5 @@
 package juego;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Tablero {
 	
 	private int tamaño;
@@ -25,6 +22,7 @@ public class Tablero {
 		this.finS = (t-1)/2;
 	}
 	
+	//--------------------------------------------------------------------
 	
 	public int getTamaño() {
 		return tamaño;

@@ -23,6 +23,8 @@ public class Equipo {
 		this.tesoros.add(t);
 	}
 	
+	//--------------------------------------------------------------------
+	
 	public int getId() {
 		return id;
 	}

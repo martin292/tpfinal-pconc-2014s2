@@ -1,15 +1,25 @@
 package juego;
 
-public class Explorador {
+public class Explorador extends Thread{
 	
 	
 	private Posicion pos;
+	//private Tablero tablero;
 	
 	public Explorador(Posicion p){
 		this.pos = p;
 	}
 	
+	public void run(){
+		while(true){
+			this.moverse();
+		}
+	}
 	
+	
+	private void moverse() {
+		//El explorador debe moverse por el tablero		
+	}
 	public void moverDer(){
 		//Si la celda esta ocupada, se quedara bloqueado hasta tanto se libere
 	}
@@ -25,7 +35,7 @@ public class Explorador {
 		//Si no puede avanzar, se quedara bloqueado hasta tanto llegue un compañero a una celda contigua.
 	}
 	
-	
+	//--------------------------------------------------------------------
 	
 	public Posicion getPos() {
 		return pos;

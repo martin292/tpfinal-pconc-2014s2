@@ -4,13 +4,16 @@ public class Juego {
 	
 	private Tablero tablero;
 	
-	public Juego(int tamañoTablero){
-		this.tablero = new Tablero(tamañoTablero);
-	}
-	
-
 	public void iniciar(){
 		//TODO
+		
+		//Se crea el tablero
+		
+		//Se crean los equipos
+		
+		//Se agregan los equipos al tablero
+		
+		//Comienza el juego
 	}
 	
 	public void finalizar(){
@@ -21,6 +24,7 @@ public class Juego {
 		//TODO 
 	}
 	
+	//--------------------------------------------------------------------
 	
 	public Tablero getTablero() {
 		return tablero;
