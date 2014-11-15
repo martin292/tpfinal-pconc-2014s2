@@ -67,4 +67,8 @@ public class Tablero {
 		this.finS = finS;
 	}
 
+	public void iniciar() {
+		
+	}
+
 }

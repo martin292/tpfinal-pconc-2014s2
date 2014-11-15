@@ -3,17 +3,22 @@ package juego;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Equipo {
+public class Equipo extends Thread{
 	
-	private int id;
-	
-	//private Tablero tablero;
+		
+	private Tablero tablero;
 	
 	private List<Explorador> exploradores = new ArrayList<Explorador>();
 	private List<Tesoro> tesoros = new ArrayList<Tesoro>();
 
-	public Equipo(int id){
-		this.id = id;
+	public Equipo(){
+		super();
+	}
+	
+	public void run(){
+		for(Explorador e: this.exploradores){
+			e.start();
+		}
 	}
 	
 	public void agregarExplorador(Explorador e){
@@ -22,14 +27,15 @@ public class Equipo {
 	public void agregarTesoro(Tesoro t){
 		this.tesoros.add(t);
 	}
-	
+
 	//--------------------------------------------------------------------
 	
-	public int getId() {
-		return id;
+	public Tablero getTablero() {
+		return tablero;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}	
 
+	public void setTablero(Tablero tablero) {
+		this.tablero = tablero;
+	}
+	
 }
