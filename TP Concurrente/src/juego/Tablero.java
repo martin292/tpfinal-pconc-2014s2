@@ -26,28 +26,26 @@ public class Tablero {
 		return this.norte.tesorosConquistados() || this.sur.tesorosConquistados();
 	}
 	
-	public void iniciar() {
-		
-	}
+	public void iniciar() {	}
 	
-	public void moverDer(){
+	public synchronized void moverDer(Explorador e){
 		//Si la celda esta ocupada, se quedara bloqueado hasta tanto se libere
 		/*
-		while(this.ocupada(x,y)){
+		while(this.posOcupada(x,y)){
 		    wait();
 		}
 		mover
 		signalAll();
 		*/
 	}
-	public void moverIzq(){
+	public synchronized void moverIzq(Explorador e){
 		//Si la celda esta ocupada, se quedara bloqueado hasta tanto se libere
 	}
-	public void moverNorte(){
+	public synchronized void moverNorte(Explorador e){
 		//Solo lo podra hacer si cuenta con al menos un compañero en alguna de las celdas contiguas laterales o traseras. 
 		//Si no puede avanzar, se quedara bloqueado hasta tanto llegue un compañero a una celda contigua.
 	}
-	public void moverSur(){
+	public synchronized void moverSur(Explorador e){
 		//Solo lo podra hacer si cuenta con al menos un compañero en alguna de las celdas contiguas laterales o traseras. 
 		//Si no puede avanzar, se quedara bloqueado hasta tanto llegue un compañero a una celda contigua.
 	}
