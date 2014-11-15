@@ -1,6 +1,8 @@
 package juego;
 
-public class Tablero extends Thread{
+import javax.management.monitor.Monitor;
+
+public class Tablero extends Monitor{
 	
 	private int tamaño;
 	
@@ -10,8 +12,7 @@ public class Tablero extends Thread{
 	private int inicioN; //[(tamaño+1)/2]+1
 	private int finN; //(tamaño)
 	private int inicioS; //(1)
-	private int finS; //(tamaño-1)/2
-	
+	private int finS; //(tamaño-1)/2	
 	
 	public Tablero(int t){
 		this.tamaño = t;
@@ -20,27 +21,37 @@ public class Tablero extends Thread{
 		this.finN = t;
 		this.inicioS = 1;
 		this.finS = (t-1)/2;
+	}	
+	
+	@Override
+	public void start() {
+		// TODO 
+		
+		//Crear N Exploradores para el Equipo NORTE
+		//Crear M Tesoros para el Equipo NORTE
+				
+		//Crear N Exploradores para el Equipo SUR
+		//Crear M Tesoros para el Equipo SUR
+				
+		//Asignar Posiciones a Exploradores y Tesoros
+
+		//
+				
+		//...
+		this.norte.start();
+		this.sur.start();
+		//...		
+	}
+
+	@Override
+	public void stop() {
+		// TODO 
+		
+		//Finalizar juego
 	}
 	
 	public boolean juegoFinalizado(){
 		return this.norte.tesorosConquistados() || this.sur.tesorosConquistados();
-	}
-	
-	public void run() {
-		//Crear N Exploradores para el Equipo NORTE
-		//Crear M Tesoros para el Equipo NORTE
-		
-		//Crear N Exploradores para el Equipo SUR
-		//Crear M Tesoros para el Equipo SUR
-		
-		//Asignar Posiciones a Exploradores y Tesoros
-
-		//
-		
-		//...
-		this.norte.start();
-		this.sur.start();
-		//...
 	}
 	
 	public synchronized void moverDer(Explorador e){
@@ -130,7 +141,5 @@ public class Tablero extends Thread{
 	public void setFinS(int finS) {
 		this.finS = finS;
 	}
-
-	
 
 }
