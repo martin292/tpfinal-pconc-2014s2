@@ -4,22 +4,23 @@ public class Explorador extends Thread{
 	
 	
 	private Posicion pos;
-	//private Tablero tablero;
+	private Equipo team;
 	
-	public Explorador(Posicion p){
+	public Explorador(Posicion p, Equipo e){
 		this.pos = p;
+		this.team = e;
 	}
 	
 	public void run(){
-		while(true){
+		while(!this.team.tesorosConquistados()){
 			this.moverse();
 		}
-	}
-	
+	}	
 	
 	private void moverse() {
-		//El explorador debe moverse por el tablero		
+		//El explorador debe elegir en que direccion moverse (der, izq, norte, sur)		
 	}
+	
 	public void moverDer(){
 		//Si la celda esta ocupada, se quedara bloqueado hasta tanto se libere
 	}

@@ -22,6 +22,14 @@ public class Tablero {
 		this.finS = (t-1)/2;
 	}
 	
+	public boolean juegoFinalizado(){
+		return this.norte.tesorosConquistados() || this.sur.tesorosConquistados();
+	}
+	
+	public void iniciar() {
+		
+	}
+	
 	//--------------------------------------------------------------------
 	
 	public int getTamaño() {
@@ -67,8 +75,6 @@ public class Tablero {
 		this.finS = finS;
 	}
 
-	public void iniciar() {
-		
-	}
+	
 
 }

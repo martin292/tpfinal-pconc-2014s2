@@ -3,7 +3,7 @@ package juego;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Equipo extends Thread{
+public class Equipo {
 	
 		
 	private Tablero tablero;
@@ -27,6 +27,14 @@ public class Equipo extends Thread{
 	public void agregarTesoro(Tesoro t){
 		this.tesoros.add(t);
 	}
+	
+	public boolean tesorosConquistados() {
+		boolean ret = true;
+		for(Tesoro t: this.tesoros){
+			ret = ret && t.isConquistado();
+		}		
+		return ret;
+	}
 
 	//--------------------------------------------------------------------
 	
@@ -37,5 +45,7 @@ public class Equipo extends Thread{
 	public void setTablero(Tablero tablero) {
 		this.tablero = tablero;
 	}
+
+	
 	
 }
