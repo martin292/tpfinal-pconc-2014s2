@@ -17,7 +17,7 @@ public class Juego {
 		tablero.setSur(e2);
 		
 		//Comienza el juego	
-		tablero.iniciar();
+		tablero.start();
 		
 	}
 }

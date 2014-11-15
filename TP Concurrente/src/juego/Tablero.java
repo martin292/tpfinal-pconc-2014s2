@@ -1,6 +1,6 @@
 package juego;
 
-public class Tablero {
+public class Tablero extends Thread{
 	
 	private int tamaño;
 	
@@ -26,7 +26,7 @@ public class Tablero {
 		return this.norte.tesorosConquistados() || this.sur.tesorosConquistados();
 	}
 	
-	public void iniciar() {
+	public void run() {
 		//Crear N Exploradores para el Equipo NORTE
 		//Crear M Tesoros para el Equipo NORTE
 		
