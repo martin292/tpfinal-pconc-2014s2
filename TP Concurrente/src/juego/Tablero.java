@@ -27,6 +27,16 @@ public class Tablero {
 	}
 	
 	public void iniciar() {
+		//Crear N Exploradores para el Equipo NORTE
+		//Crear M Tesoros para el Equipo NORTE
+		
+		//Crear N Exploradores para el Equipo SUR
+		//Crear M Tesoros para el Equipo SUR
+		
+		//Asignar Posiciones a Exploradores y Tesoros
+
+		//
+		
 		//...
 		this.norte.start();
 		this.sur.start();

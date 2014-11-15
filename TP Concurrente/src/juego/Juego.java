@@ -2,6 +2,7 @@ package juego;
 
 public class Juego {
 	
+	//TEST	
 	public static void main(String[] args) {
 		
 		//Se crea el tablero
@@ -10,9 +11,6 @@ public class Juego {
 		//Se crean los equipos
 		Equipo e1 = new Equipo();
 		Equipo e2 = new Equipo();
-		
-		//Se crean exploradores, tesoros y se agregan a los equipos
-		//
 				
 		//Se agregan los equipos al tablero
 		tablero.setNorte(e1);
