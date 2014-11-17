@@ -23,6 +23,7 @@ public class Tablero extends Monitor{
 		this.finS = (t-1)/2;
 	}	
 	
+	//-------------------------------------------------------------
 	@Override
 	public void start() {
 		// TODO 
@@ -35,7 +36,7 @@ public class Tablero extends Monitor{
 				
 		//Asignar Posiciones a Exploradores y Tesoros
 
-		//
+		//Agregar Exploradores y Tesoros al Equipo NORTE y SUR
 				
 		//...
 		this.norte.start();
@@ -49,53 +50,112 @@ public class Tablero extends Monitor{
 		
 		//Finalizar juego
 	}
+	//-------------------------------------------------------------
 	
+	
+	/**
+	 * Retorna true si el juego finalizo
+	 * (El juego finaliza cuando todos los tesoros de un equipo son conquistados)
+	 */
 	public boolean juegoFinalizado(){
 		return this.norte.tesorosConquistados() || this.sur.tesorosConquistados();
 	}
 	
-	public synchronized void moverDer(Explorador e){
+	/**
+	 * Retorna true si las coordenadas entran en el tablero
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public boolean existePos(int x, int y) {
+		// TODO 
+		return false;
+	}
+	
+	/**
+	 * Mueve al explorador a la derecha (+1 en el eje x)
+	 * Si la celda esta ocupada, se quedara bloqueado hasta tanto se libere
+	 * @param e
+	 * @throws InterruptedException
+	 */
+	public synchronized void moverDer(Explorador e) throws InterruptedException{	
+		while(this.posOcupada(e.getPos().getX()+1,e.getPos().getY())){
+		    wait();
+		}
+		e.getPos().setX(e.getPos().getX()+1);
+		notifyAll();		
+	}
+	
+	/**
+	 * Retorna true  si la posicion esta ocupada
+	 * Se dice que una celda esta ocupada, cuando hay un participante en esa posicicion
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	private boolean posOcupada(int x, int y) {
+		//TODO
+		return false;
+	}
+
+	/**
+	 * Mueve al explorador a la izquierda (-1 en el eje x)
+	 * Si la celda esta ocupada, se quedara bloqueado hasta tanto se libere
+	 * @param e
+	 * @throws InterruptedException
+	 */
+	public synchronized void moverIzq(Explorador e) throws InterruptedException{
 		//Si la celda esta ocupada, se quedara bloqueado hasta tanto se libere
-		/*
-		while(this.posOcupada(x,y)){
+		while(this.posOcupada(e.getPos().getX()-1,e.getPos().getY())){
 		    wait();
 		}
-		mover
-		signalAll();
-		*/
+		e.getPos().setX(e.getPos().getX()-1);
+		notifyAll();
 	}
-	public synchronized void moverIzq(Explorador e){
-		//Si la celda esta ocupada, se quedara bloqueado hasta tanto se libere
-		/*
-		while(this.posOcupada(x,y)){
+	
+	/**
+	 * Mueve al explorador hacia arriba (+1 en el eje y)
+	 * Solo lo podra hacer si cuenta con al menos un compañero en alguna de las celdas contiguas laterales.
+	 * Si no puede avanzar, se quedara bloqueado hasta tanto llegue un compañero a una celda contigua.
+	 * @param e
+	 * @throws InterruptedException
+	 */
+	public synchronized void moverNorte(Explorador e) throws InterruptedException{		
+		while(this.celdasContiguasDesocupadas(e.getPos().getX(),e.getPos().getY()+1)){
 		    wait();
 		}
-		mover
-		signalAll();
-		*/
+		e.getPos().setY(e.getPos().getY()+1);
+		notifyAll();		
 	}
-	public synchronized void moverNorte(Explorador e){
-		//Solo lo podra hacer si cuenta con al menos un compañero en alguna de las celdas contiguas laterales. 
-		//Si no puede avanzar, se quedara bloqueado hasta tanto llegue un compañero a una celda contigua.
-		/*
-		while(this.celdasContiguasDesocupadas(x,y)){
+	
+	/**
+	 * Retorna true si las celdas laterales estan desocupadas
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	private boolean celdasContiguasDesocupadas(int x, int y) {
+		// TODO 
+		return false;
+	}
+
+	/**
+	 * Mueve al explorador hacia abajo (-1 en el eje y)
+	 * Solo lo podra hacer si cuenta con al menos un compañero en alguna de las celdas contiguas laterales.
+	 * Si no puede avanzar, se quedara bloqueado hasta tanto llegue un compañero a una celda contigua.
+	 * @param e
+	 * @throws InterruptedException
+	 */
+	public synchronized void moverSur(Explorador e) throws InterruptedException{
+		while(this.celdasContiguasDesocupadas(e.getPos().getX(),e.getPos().getY()-1)){
 		    wait();
 		}
-		mover
-		signalAll();
-		*/
+		e.getPos().setY(e.getPos().getY()-1);
+		notifyAll();
 	}
-	public synchronized void moverSur(Explorador e){
-		//Solo lo podra hacer si cuenta con al menos un compañero en alguna de las celdas contiguas laterales. 
-		//Si no puede avanzar, se quedara bloqueado hasta tanto llegue un compañero a una celda contigua.
-		/*
-		while(this.celdasContiguasDesocupadas(x,y)){
-		    wait();
-		}
-		mover
-		signalAll();
-		*/
-	}
+	
+	
+	
 	
 	//--------------------------------------------------------------------
 	
@@ -141,5 +201,7 @@ public class Tablero extends Monitor{
 	public void setFinS(int finS) {
 		this.finS = finS;
 	}
+
+	//
 
 }

@@ -12,12 +12,19 @@ public class Equipo extends Thread{
 		super();
 	}
 	
+	/**
+	 * Activa todos los threads explorador
+	 */
 	public void run(){
 		for(Explorador e: this.exploradores){
 			e.start();
 		}
 	}
-		
+	
+	/**
+	 * Retorna true si todos sus tesoros fueron conquistados
+	 * @return
+	 */
 	public boolean tesorosConquistados() {
 		boolean ret = true;
 		for(Tesoro t: this.tesoros){
@@ -26,6 +33,9 @@ public class Equipo extends Thread{
 		return ret;
 	}
 
+	
+	
+	
 	//--------------------------------------------------------------------	
 
 	public void agregarExplorador(Explorador e){
