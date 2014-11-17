@@ -10,6 +10,16 @@ public class Posicion {
 		this.y = y;
 	}
 	
+	/**
+	 * Retorna true si las coordenadas son iguales
+	 * @param x2
+	 * @param y2
+	 * @return
+	 */
+	public boolean igual(int x2, int y2) {
+		return this.x == x2 && this.y == y2;
+	}
+	
 	//--------------------------------------------------------------------
 	
 	public int getX() {
@@ -23,5 +33,7 @@ public class Posicion {
 	}
 	public void setY(int y) {
 		this.y = y;
-	}		
+	}
+
+			
 }

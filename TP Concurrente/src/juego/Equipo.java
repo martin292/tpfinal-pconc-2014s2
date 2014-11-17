@@ -33,7 +33,21 @@ public class Equipo extends Thread{
 		return ret;
 	}
 
-	
+	/**
+	 * Retorna true si hay un explorador en esa posicion
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public boolean estaOcupada(int x, int y) {
+		boolean ret = false;
+		
+		for(Explorador e: this.exploradores){
+			ret = ret || e.getPos().igual(x,y);
+		}
+		
+		return ret;
+	}
 	
 	
 	//--------------------------------------------------------------------	
@@ -44,6 +58,8 @@ public class Equipo extends Thread{
 	public void agregarTesoro(Tesoro t){
 		this.tesoros.add(t);
 	}
+
+	
 	
 	
 }

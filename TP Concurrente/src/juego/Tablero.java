@@ -93,8 +93,7 @@ public class Tablero extends Monitor{
 	 * @return
 	 */
 	private boolean posOcupada(int x, int y) {
-		//TODO
-		return false;
+		return this.norte.estaOcupada(x,y) || this.sur.estaOcupada(x,y);
 	}
 
 	/**
