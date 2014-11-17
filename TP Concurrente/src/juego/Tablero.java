@@ -103,7 +103,6 @@ public class Tablero extends Monitor{
 	 * @throws InterruptedException
 	 */
 	public synchronized void moverIzq(Explorador e) throws InterruptedException{
-		//Si la celda esta ocupada, se quedara bloqueado hasta tanto se libere
 		while(this.posOcupada(e.getPos().getX()-1,e.getPos().getY())){
 		    wait();
 		}
@@ -119,7 +118,7 @@ public class Tablero extends Monitor{
 	 * @throws InterruptedException
 	 */
 	public synchronized void moverNorte(Explorador e) throws InterruptedException{		
-		while(this.celdasContiguasDesocupadas(e.getPos().getX(),e.getPos().getY()+1)){
+		while(this.celdasContiguasDesocupadas(e.getPos().getX(),e.getPos().getY()+1) || this.posOcupada(e.getPos().getX(),e.getPos().getY()+1)){
 		    wait();
 		}
 		e.getPos().setY(e.getPos().getY()+1);
@@ -133,7 +132,7 @@ public class Tablero extends Monitor{
 	 * @return
 	 */
 	private boolean celdasContiguasDesocupadas(int x, int y) {
-		// TODO 
+		//TODO
 		return false;
 	}
 
