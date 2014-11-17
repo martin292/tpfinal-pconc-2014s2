@@ -68,8 +68,7 @@ public class Tablero extends Monitor{
 	 * @return
 	 */
 	public boolean existePos(int x, int y) {
-		// TODO 
-		return false;
+		return (x > 0 && x <= this.tamaño) && (y > 0 && y <= this.tamaño);
 	}
 	
 	/**
