@@ -82,6 +82,7 @@ public class Tablero extends Monitor{
 		    wait();
 		}
 		e.getPos().setX(e.getPos().getX()+1);
+		//Si hay tesoro del equipo contrario lo conquista
 		notifyAll();		
 	}
 	
@@ -107,6 +108,7 @@ public class Tablero extends Monitor{
 		    wait();
 		}
 		e.getPos().setX(e.getPos().getX()-1);
+		//Si hay tesoro del equipo contrario lo conquista
 		notifyAll();
 	}
 	
@@ -122,6 +124,7 @@ public class Tablero extends Monitor{
 		    wait();
 		}
 		e.getPos().setY(e.getPos().getY()+1);
+		//Si hay tesoro del equipo contrario lo conquista
 		notifyAll();		
 	}
 	
@@ -148,6 +151,7 @@ public class Tablero extends Monitor{
 		    wait();
 		}
 		e.getPos().setY(e.getPos().getY()-1);
+		//Si hay tesoro del equipo contrario lo conquista
 		notifyAll();
 	}
 	
