@@ -54,10 +54,12 @@ public class Explorador extends Thread{
 	 */
 	public void moverEste() throws InterruptedException{
 		Posicion posAux = new Posicion (this.getPos().getX()+1, this.getPos().getY());
+		Posicion pos = this.getPos();
 		
-		if(this.tablero.existePos(posAux)){
-			System.out.println(this.toString() + " De posicion: " + this.getPos().toString() + " Se mueve a : " + posAux.toString());
+		if(this.tablero.existePos(posAux)){	
+			System.out.println(this.toString() + " intente mover derecha");
 			this.tablero.moverDer(this);
+			System.out.println(this.toString() + " De posicion: " + pos.toString() + " Se mueve a : " + posAux.toString());
 		 }
 		//Cuando un participante intenta un movimiento que lo llevaria fuera del tablero, se entera de que esta en el borde.
 	}
@@ -68,10 +70,12 @@ public class Explorador extends Thread{
 	 */
 	public void moverOeste() throws InterruptedException{
 		Posicion posAux = new Posicion(this.getPos().getX()-1, this.getPos().getY());
+		Posicion pos = this.getPos();
 		
 		if(this.tablero.existePos(posAux)){
-			System.out.println(this.toString() + " De posicion: " + this.getPos().toString() + " Se mueve a : " + posAux.toString());
+			System.out.println(this.toString() + " intente mover izquierda");
 			this.tablero.moverIzq(this);
+			System.out.println(this.toString() + " De posicion: " + pos.toString() + " Se mueve a : " + posAux.toString());
 		 }
 		//Cuando un participante intenta un movimiento que lo llevaria fuera del tablero, se entera de que esta en el borde.
 	}
@@ -82,10 +86,12 @@ public class Explorador extends Thread{
 	 */
 	public void moverNorte() throws InterruptedException{
 		Posicion posAux = new Posicion(this.getPos().getX(), this.getPos().getY()+1);
+		Posicion pos = this.getPos();
 		
 		if(this.tablero.existePos(posAux)){
-			System.out.println(this.toString() + " De posicion: " + this.getPos().toString() + " Se mueve a : " + posAux.toString());
+			System.out.println(this.toString() + " intente mover arriva");
 			this.tablero.moverNorte(this);
+			System.out.println(this.toString() + " De posicion: " + pos.toString() + " Se mueve a : " + posAux.toString());
 		 }
 		//Cuando un participante intenta un movimiento que lo llevaria fuera del tablero, se entera de que esta en el borde.
 	}
@@ -96,10 +102,12 @@ public class Explorador extends Thread{
 	 */
 	public void moverSur() throws InterruptedException{
 		Posicion posAux = new Posicion(this.getPos().getX(), this.getPos().getY()-1);
+		Posicion pos = this.getPos();
 		
 		if(this.tablero.existePos(posAux)){
-			System.out.println(this.toString() + " De posicion: " + this.getPos().toString() + " Se mueve a : " + posAux.toString());
+			System.out.println(this.toString() + " intente mover abajo");
 			this.tablero.moverSur(this); 
+			System.out.println(this.toString() + " De posicion: " + pos.toString() + " Se mueve a : " + posAux.toString());
 		 }
 		//Cuando un participante intenta un movimiento que lo llevaria fuera del 
 		//tablero, se entera de que esta en el borde.

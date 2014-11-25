@@ -142,11 +142,10 @@ public class Tablero {
 		this.equipoNorte.start();
 		this.equipoSur.start();
 		//...
-	}
-
-	public void stop() {
-		// TODO 		
-		//Finalizar juego
+		
+		while(!this.juegoFinalizado()){}
+		
+		System.out.println("JUEGO FINALIZADO");
 	}
 	//-------------------------------------------------------------
 	
@@ -206,6 +205,7 @@ public class Tablero {
 		e.setPos(p);
 
 		if(this.hayTesoroEnPosicion(e.getPos())){
+			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
 		notifyAll();
@@ -241,6 +241,7 @@ public class Tablero {
 		e.setPos(p);
 		
 		if(this.hayTesoroEnPosicion(e.getPos())){
+			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
 		notifyAll();		
@@ -263,6 +264,7 @@ public class Tablero {
 		e.setPos(p);
 		
 		if(this.hayTesoroEnPosicion(e.getPos())){
+			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
 		notifyAll();			
@@ -285,6 +287,7 @@ public class Tablero {
 		e.setPos(p);
 		
 		if(this.hayTesoroEnPosicion(e.getPos())){
+			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
 		notifyAll();
