@@ -143,6 +143,8 @@ public class Tablero {
 		this.equipoSur.start();
 		//...
 		
+		System.out.println("COMIENZA EL JUEGO");
+		
 		while(!this.juegoFinalizado()){}
 		
 		System.out.println("JUEGO FINALIZADO");
@@ -209,6 +211,7 @@ public class Tablero {
 			this.conquistarTesoro(e);
 		}
 		notifyAll();
+		System.out.println(e.toString() + " Desbloquea a todos los threads");
 			
 	}
 
@@ -244,7 +247,8 @@ public class Tablero {
 			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
-		notifyAll();		
+		notifyAll();
+		System.out.println(e.toString() + " Desbloquea a todos los threads");
 	}
 
 	/**
@@ -267,7 +271,8 @@ public class Tablero {
 			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
-		notifyAll();			
+		notifyAll();
+		System.out.println(e.toString() + " Desbloquea a todos los threads");
 	}
 
 	/**
@@ -291,6 +296,7 @@ public class Tablero {
 			this.conquistarTesoro(e);
 		}
 		notifyAll();
+		System.out.println(e.toString() + " Desbloquea a todos los threads");
 	}
 	
 	/**
