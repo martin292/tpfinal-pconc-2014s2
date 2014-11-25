@@ -208,6 +208,8 @@ public class Tablero {
 		    wait();
 		    System.out.println(e.toString() + " Desbloquado");
 		}
+		e.getPos().setTieneExplorador(false);
+		p.setTieneExplorador(true);
 		e.setPos(p);
 		System.out.println(e.toString() + " Se mueve a : " + e.getPos().toString());
 
@@ -254,7 +256,9 @@ public class Tablero {
 			System.out.println(e.toString() + " Bloquado");
 		    wait();
 		    System.out.println(e.toString() + " Desbloquado");
-		}		
+		}
+		e.getPos().setTieneExplorador(false);
+		p.setTieneExplorador(true);
 		e.setPos(p);
 		System.out.println(e.toString() + " Se mueve a : " + e.getPos().toString());
 		
@@ -280,6 +284,8 @@ public class Tablero {
 		    wait();
 		    System.out.println(e.toString() + " Desbloquado");
 		}
+		e.getPos().setTieneExplorador(false);
+		p.setTieneExplorador(true);
 		e.setPos(p);
 		System.out.println(e.toString() + " Se mueve a : " + e.getPos().toString());
 		
@@ -305,6 +311,8 @@ public class Tablero {
 		    wait();
 		    System.out.println(e.toString() + " Desbloquado");
 		}
+		e.getPos().setTieneExplorador(false);
+		p.setTieneExplorador(true);
 		e.setPos(p);
 		System.out.println(e.toString() + " Se mueve a : " + e.getPos().toString());
 		
