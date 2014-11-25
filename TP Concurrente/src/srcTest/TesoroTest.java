@@ -1,6 +1,7 @@
 package srcTest;
 
 import static org.junit.Assert.*;
+import juego.Equipo;
 import juego.Posicion;
 import juego.Tesoro;
 
@@ -15,7 +16,7 @@ public class TesoroTest {
 	@Before
 	public void setUp(){
 		posicion = new Posicion(2,3);
-		tesoro = new Tesoro(posicion);
+		tesoro = new Tesoro(posicion, new Equipo("Norte"));
 	}
 
 	@Test

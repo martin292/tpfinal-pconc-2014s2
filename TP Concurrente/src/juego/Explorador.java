@@ -57,9 +57,8 @@ public class Explorador extends Thread{
 		Posicion pos = this.getPos();
 		
 		if(this.tablero.existePos(posAux)){	
-			System.out.println(this.toString() + " intente mover derecha");
-			this.tablero.moverDer(this);
-			System.out.println(this.toString() + " De posicion: " + pos.toString() + " Se mueve a : " + posAux.toString());
+			System.out.println(this.toString() + " De posicion: " + pos.toString() + " intente mover derecha");
+			this.tablero.moverDer(this);			
 		 }
 		//Cuando un participante intenta un movimiento que lo llevaria fuera del tablero, se entera de que esta en el borde.
 	}
@@ -73,9 +72,8 @@ public class Explorador extends Thread{
 		Posicion pos = this.getPos();
 		
 		if(this.tablero.existePos(posAux)){
-			System.out.println(this.toString() + " intente mover izquierda");
+			System.out.println(this.toString() + " De posicion: " + pos.toString() + " intente mover izquierda");
 			this.tablero.moverIzq(this);
-			System.out.println(this.toString() + " De posicion: " + pos.toString() + " Se mueve a : " + posAux.toString());
 		 }
 		//Cuando un participante intenta un movimiento que lo llevaria fuera del tablero, se entera de que esta en el borde.
 	}
@@ -89,9 +87,8 @@ public class Explorador extends Thread{
 		Posicion pos = this.getPos();
 		
 		if(this.tablero.existePos(posAux)){
-			System.out.println(this.toString() + " intente mover arriva");
+			System.out.println(this.toString() + " De posicion: " + pos.toString() + " intente mover arriva");
 			this.tablero.moverNorte(this);
-			System.out.println(this.toString() + " De posicion: " + pos.toString() + " Se mueve a : " + posAux.toString());
 		 }
 		//Cuando un participante intenta un movimiento que lo llevaria fuera del tablero, se entera de que esta en el borde.
 	}
@@ -105,9 +102,8 @@ public class Explorador extends Thread{
 		Posicion pos = this.getPos();
 		
 		if(this.tablero.existePos(posAux)){
-			System.out.println(this.toString() + " intente mover abajo");
+			System.out.println(this.toString() + " De posicion: " + pos.toString() + " intente mover abajo");
 			this.tablero.moverSur(this); 
-			System.out.println(this.toString() + " De posicion: " + pos.toString() + " Se mueve a : " + posAux.toString());
 		 }
 		//Cuando un participante intenta un movimiento que lo llevaria fuera del 
 		//tablero, se entera de que esta en el borde.

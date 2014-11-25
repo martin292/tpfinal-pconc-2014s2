@@ -85,7 +85,7 @@ public class Tablero {
 		int cantTesoros;
 		for(cantTesoros = 1; cantTesoros <= ((this.tamanio -1)/2); cantTesoros++){
 			Posicion posR = posicionVaciaRandom(e);
-			Tesoro tesoro = new Tesoro(posR);
+			Tesoro tesoro = new Tesoro(posR, e);
 			e.agregarTesoro(tesoro);
 			e.getPosiciones().get(e.getPosiciones().indexOf(posR)).setTieneTesoro(true);
 		}
@@ -138,13 +138,11 @@ public class Tablero {
 	
 	//-------------------------------------------------------------
 	public void start() {		
-		//...
+		System.out.println("COMIENZA EL JUEGO");		
+		
 		this.equipoNorte.start();
 		this.equipoSur.start();
-		//...
-		
-		System.out.println("COMIENZA EL JUEGO");
-		
+				
 		while(!this.juegoFinalizado()){}
 		
 		System.out.println("JUEGO FINALIZADO");
@@ -172,7 +170,8 @@ public class Tablero {
 	
 	private void conquistarTesoro(Explorador e) {
 		// TODO 
-		//Si el tesoro es de equipo contrario, lo conquista		
+		//Si el tesoro es de equipo contrario, lo conquista
+		
 	}
 
 	private boolean hayTesoroEnPosicion(Posicion p) {
@@ -196,8 +195,7 @@ public class Tablero {
 	 */
 	
 	public synchronized void moverDer(Explorador e) throws InterruptedException{
-		
-		Posicion p = new Posicion(e.getPos().getX()+1,e.getPos().getY());
+		Posicion p = this.retPos(e.getPos().getX()+1, e.getPos().getY());
 		
 		while(this.posOcupada(p)){
 			System.out.println(e.toString() + " Bloquado");
@@ -205,6 +203,7 @@ public class Tablero {
 		    System.out.println(e.toString() + " Desbloquado");
 		}
 		e.setPos(p);
+		System.out.println(e.toString() + " Se mueve a : " + e.getPos().toString());
 
 		if(this.hayTesoroEnPosicion(e.getPos())){
 			System.out.println("Hay Tesoro");
@@ -213,6 +212,15 @@ public class Tablero {
 		notifyAll();
 		System.out.println(e.toString() + " Desbloquea a todos los threads");
 			
+	}
+
+	private Posicion retPos(int x, int y) {
+		for(Posicion p: this.posiciones){
+			if(p.getX() == x && p.getY() == y){
+				return p;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -234,7 +242,7 @@ public class Tablero {
 	 */
 	public synchronized void moverIzq(Explorador e) throws InterruptedException{
 	
-		Posicion p = new Posicion(e.getPos().getX()-1,e.getPos().getY());
+		Posicion p = this.retPos(e.getPos().getX()-1,e.getPos().getY());
 		
 		while(this.posOcupada(p)){
 			System.out.println(e.toString() + " Bloquado");
@@ -242,6 +250,7 @@ public class Tablero {
 		    System.out.println(e.toString() + " Desbloquado");
 		}		
 		e.setPos(p);
+		System.out.println(e.toString() + " Se mueve a : " + e.getPos().toString());
 		
 		if(this.hayTesoroEnPosicion(e.getPos())){
 			System.out.println("Hay Tesoro");
@@ -259,13 +268,14 @@ public class Tablero {
 	 * @throws InterruptedException
 	 */
 	public synchronized void moverNorte(Explorador e) throws InterruptedException{		
-		Posicion p = new Posicion(e.getPos().getX(),e.getPos().getY()+1);
+		Posicion p = this.retPos(e.getPos().getX(),e.getPos().getY()+1);
 		while(this.posOcupada(p) || !this.celdasContiguasOcupadas(p, e.getTeam())){
 			System.out.println(e.toString() + " Bloquado");
 		    wait();
 		    System.out.println(e.toString() + " Desbloquado");
 		}
 		e.setPos(p);
+		System.out.println(e.toString() + " Se mueve a : " + e.getPos().toString());
 		
 		if(this.hayTesoroEnPosicion(e.getPos())){
 			System.out.println("Hay Tesoro");
@@ -283,13 +293,14 @@ public class Tablero {
 	 * @throws InterruptedException
 	 */
 	public synchronized void moverSur(Explorador e) throws InterruptedException{
-		Posicion p = new Posicion(e.getPos().getX(),e.getPos().getY()-1);
+		Posicion p = this.retPos(e.getPos().getX(),e.getPos().getY()-1);
 		while(this.posOcupada(p) || !this.celdasContiguasOcupadas(p, e.getTeam())){
 			System.out.println(e.toString() + " Bloquado");
 		    wait();
 		    System.out.println(e.toString() + " Desbloquado");
 		}
 		e.setPos(p);
+		System.out.println(e.toString() + " Se mueve a : " + e.getPos().toString());
 		
 		if(this.hayTesoroEnPosicion(e.getPos())){
 			System.out.println("Hay Tesoro");
