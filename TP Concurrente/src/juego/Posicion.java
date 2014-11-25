@@ -38,6 +38,10 @@ public class Posicion {
 		return this.tieneTesoro || this.tieneExplorador;
 	}
 	
+	public String toString(){
+		return " X = " + this.x + " Y = " + this.y;
+	}
+	
 	//--------------------------------------------------------------------
 	
 	public int getX() {

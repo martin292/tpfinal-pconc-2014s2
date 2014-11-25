@@ -5,12 +5,14 @@ import java.util.List;
 
 public class Equipo extends Thread{
 
+	private String nombre;
 	private List<Posicion> posiciones;
 	private List<Explorador> exploradores;
 	private List<Tesoro> tesoros;
 	private List<Tesoro> tesorosConquistados;
 
-	public Equipo(){
+	public Equipo(String name){
+		this.nombre = name;
 		this.posiciones = new ArrayList<Posicion>();
 		this.exploradores = new ArrayList<Explorador>();
 		this.tesoros = new ArrayList<Tesoro>();
@@ -44,18 +46,25 @@ public class Equipo extends Thread{
 	 * @param y
 	 * @return
 	 */
-/*
+
 	public boolean estaOcupada(Posicion p) {
 		boolean ret = false;
 		
-		for(Explorador e: this.exploradores){
-			ret = ret || e.getPos().posicionesIguales(p);
+		for(Posicion pos: this.posiciones){
+			if(pos.equals(p)){
+				ret = pos.tieneExplorador();
+				break;
+			}
 		}
 		
 		return ret;
 	}
 	
-*/	
+	public String toString(){
+		return this.nombre;
+	}
+	
+	
 	//--------------------------------------------------------------------	
 	public List<Posicion> getPosiciones(){
 		return this.posiciones;

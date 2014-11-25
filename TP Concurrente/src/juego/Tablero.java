@@ -6,10 +6,10 @@ import java.util.Random;
 
 import javax.management.monitor.Monitor;
 
-public class Tablero extends Monitor{
+public class Tablero {
 	
 	int tamanio;
-	private List<Posicion> posiciones;
+	private List<Posicion> posiciones = new ArrayList<Posicion>();
 	private Equipo equipoNorte;
 	private Equipo equipoSur;
 	private Posicion inicioNorte; //[(tamaño+1)/2]+1
@@ -18,10 +18,10 @@ public class Tablero extends Monitor{
 	private Posicion finSur; //(tamaño-1)/2	
 
 	public Tablero(int t){  
-		this.tamanio = t;
-		equipoNorte = new Equipo();
-		equipoSur = new Equipo();
-		this.crearPosiciones(t);
+		this.tamanio = t;		
+		equipoNorte = new Equipo("Norte"); 
+		equipoSur = new Equipo("Sur"); 		
+		this.crearPosiciones(t); 
 		this.agregarExploradores(equipoNorte, equipoSur);
 		this.agregarTesoros(equipoNorte, equipoSur);
 		/*
@@ -29,13 +29,13 @@ public class Tablero extends Monitor{
 		this.finNorte = new Posicion(((t-1)/2),t);
 		this.inicioSur = new Posicion(1,(((t-1)/2)+1));
 		this.finSur = new Posicion (t,t);
-*/
+		*/
 	}	
 	
 	public void crearPosiciones(int t){
 		this.crearPosicionesNorte(t);
-		this.crearLineaDivisoria(t);
-		this.crearPosicionesSur(t);
+		this.crearLineaDivisoria(t); 
+		this.crearPosicionesSur(t); 
 	}
 	
 	public void crearPosicionesNorte(int t){
@@ -48,6 +48,7 @@ public class Tablero extends Monitor{
 				posicionesNorte.add(pos);
 			}
 		}
+		
 		equipoNorte.setPosiciones(posicionesNorte);
 		posiciones.addAll(posicionesNorte);
 	}
@@ -74,7 +75,8 @@ public class Tablero extends Monitor{
 				pos.setEstaEnBorde(j == 1 || i == t || j == t);
 				posicionesSur.add(pos);
 			}
-		}
+		}		
+		
 		equipoSur.setPosiciones(posicionesSur);
 		posiciones.addAll(posicionesSur);
 	}
@@ -117,7 +119,7 @@ public class Tablero extends Monitor{
 		int cantExploradores;
 		for(cantExploradores = 1; cantExploradores <= (((this.tamanio -1)/2)+1); cantExploradores++){
 			Posicion posR = posicionRandom(e);
-			Explorador explorador = new Explorador(posR, e);
+			Explorador explorador = new Explorador(posR, e, this, cantExploradores);
 			e.agregarExplorador(explorador);
 			e.getPosiciones().get(e.getPosiciones().indexOf(posR)).setTieneExplorador(true);
 		}
@@ -135,38 +137,15 @@ public class Tablero extends Monitor{
 
 	
 	//-------------------------------------------------------------
-	@Override
-	public void start() {
-		// TODO 
-		
-		//Crear una lista de Posiciones para cada equipo, donde luego
-		// se van a agregar los exploradores y tesoros
-		
-		// Posiciones equipo NORTE
-		// Posiciones equipo SUR
-		
-		
-		//Crear N Exploradores y los ubica para el Equipo NORTE
-		//Crear M Tesoros y los ubica para el Equipo NORTE
-		
-
-				
-		//Crear N Exploradores y los ubica para el Equipo SUR
-		//Crear M Tesoros y los ubica para el Equipo SUR
-				
-
-
-				
+	public void start() {		
 		//...
 		this.equipoNorte.start();
 		this.equipoSur.start();
-		//...		
+		//...
 	}
 
-	@Override
 	public void stop() {
-		// TODO 
-		
+		// TODO 		
 		//Finalizar juego
 	}
 	//-------------------------------------------------------------
@@ -197,14 +176,17 @@ public class Tablero extends Monitor{
 	 * @throws InterruptedException
 	 */
 	
-	public synchronized void moverDer(Explorador e) throws InterruptedException{	
-	/*	while(this.posOcupada(e.getPos().getX()+1,e.getPos().getY())){
+	public synchronized void moverDer(Explorador e) throws InterruptedException{
+		
+		Posicion p = new Posicion(e.getPos().getX()+1,e.getPos().getY());
+		
+		while(this.posOcupada(p)){
 		    wait();
 		}
-		e.getPos().setX(e.getPos().getX()+1);
+		e.setPos(p);
 		//Si hay tesoro del equipo contrario lo conquista
 		notifyAll();
-	*/		
+			
 	}
 
 	/**
@@ -214,11 +196,8 @@ public class Tablero extends Monitor{
 	 * @param y
 	 * @return
 	 */
-	private boolean posOcupada(Posicion p) {
-		/*
+	private boolean posOcupada(Posicion p) {		
 		return this.equipoNorte.estaOcupada(p) || this.equipoSur.estaOcupada(p);
-	*/
-		return false; //BORRAR ESTA LINEA
 	}
 
 	/**
@@ -228,15 +207,15 @@ public class Tablero extends Monitor{
 	 * @throws InterruptedException
 	 */
 	public synchronized void moverIzq(Explorador e) throws InterruptedException{
-	/*
-		while(this.posOcupada(e.getPos()){
-			//ARREGLAR
+	
+		Posicion p = new Posicion(e.getPos().getX()-1,e.getPos().getY());
+		
+		while(this.posOcupada(p)){
 		    wait();
-		}
-		e.getPos().setX(e.getPos().getX()-1);
+		}		
+		e.setPos(p);
 		//Si hay tesoro del equipo contrario lo conquista
-		notifyAll();
-		*/
+		notifyAll();		
 	}
 
 	/**
@@ -247,26 +226,14 @@ public class Tablero extends Monitor{
 	 * @throws InterruptedException
 	 */
 	public synchronized void moverNorte(Explorador e) throws InterruptedException{		
-		/*
-		 while(this.celdasContiguasDesocupadas(e.getPos().getX(),e.getPos().getY()+1) || this.posOcupada(e.getPos().getX(),e.getPos().getY()+1)){
+		Posicion p = new Posicion(e.getPos().getX(),e.getPos().getY()+1);
+		while(this.posOcupada(p) || !this.celdasContiguasOcupadas(p, e.getTeam())){
 		 
 		    wait();
 		}
-		e.getPos().setY(e.getPos().getY()+1);
+		e.setPos(p);
 		//Si hay tesoro del equipo contrario lo conquista
-		notifyAll();
-		*/		
-	}
-
-	/**
-	 * Retorna true si las celdas laterales estan desocupadas
-	 * @param x
-	 * @param y
-	 * @return
-	 */
-	private boolean celdasContiguasDesocupadas(int x, int y) {
-		//TODO
-		return false;
+		notifyAll();			
 	}
 
 	/**
@@ -277,12 +244,26 @@ public class Tablero extends Monitor{
 	 * @throws InterruptedException
 	 */
 	public synchronized void moverSur(Explorador e) throws InterruptedException{
-		while(this.celdasContiguasDesocupadas(e.getPos().getX(),e.getPos().getY()-1)){
+		Posicion p = new Posicion(e.getPos().getX(),e.getPos().getY()-1);
+		while(this.posOcupada(p) || !this.celdasContiguasOcupadas(p, e.getTeam())){
 		    wait();
 		}
-		e.getPos().setY(e.getPos().getY()-1);
+		e.setPos(p);
 		//Si hay tesoro del equipo contrario lo conquista
 		notifyAll();
+	}
+	
+	/**
+	 * Retorna true si las celdas laterales estan desocupadas
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	private boolean celdasContiguasOcupadas(Posicion p, Equipo e) {
+		Posicion posDer = new Posicion(p.getX()+1, p.getY());
+		Posicion posIzq = new Posicion(p.getX()-1, p.getY());
+		
+		return e.estaOcupada(posDer) || e.estaOcupada(posIzq); 
 	}
 		
 	//--------------------------------------------------------------------
