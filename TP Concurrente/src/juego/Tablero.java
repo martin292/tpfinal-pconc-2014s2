@@ -169,8 +169,14 @@ public class Tablero {
 	}
 	
 	private void conquistarTesoro(Explorador e) {
-		// TODO 
-		//Si el tesoro es de equipo contrario, lo conquista
+		
+		if(!e.getTeam().hayTesoroEn(e.getPos()) && e.getTeam() == this.equipoNorte){
+			this.equipoSur.retTesoro(e.getPos()).setConquistado(true);
+			System.out.println("Tesoro conquistado!!!");
+		}else if(!e.getTeam().hayTesoroEn(e.getPos()) && e.getTeam() == this.equipoSur){
+			this.equipoSur.retTesoro(e.getPos()).setConquistado(true);
+			System.out.println("Tesoro conquistado!!!");
+		}
 		
 	}
 

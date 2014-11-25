@@ -64,6 +64,29 @@ public class Equipo extends Thread{
 		return this.nombre;
 	}
 	
+
+	public boolean hayTesoroEn(Posicion p) {
+		boolean ret = false;
+		
+		for(Posicion pos: this.posiciones){
+			if(pos.equals(p)){
+				ret = pos.tieneTesoro();
+				break;
+			}
+		}
+		
+		return ret;
+	}
+
+	public Tesoro retTesoro(Posicion pos) {
+		for(Tesoro t: this.tesoros){
+			if(t.getPos().equals(pos)){
+				return t;
+			}
+		}
+		return null;
+	}
+	
 	//--------------------------------------------------------------------
 	
 	public String getNombre() {
@@ -105,4 +128,5 @@ public class Equipo extends Thread{
 	public void agregarTesoro(Tesoro t){
 		this.tesoros.add(t);
 	}
+
 }
