@@ -64,8 +64,17 @@ public class Equipo extends Thread{
 		return this.nombre;
 	}
 	
+	//--------------------------------------------------------------------
 	
-	//--------------------------------------------------------------------	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+		
 	public List<Posicion> getPosiciones(){
 		return this.posiciones;
 	}

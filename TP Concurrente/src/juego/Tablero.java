@@ -171,14 +171,20 @@ public class Tablero {
 	
 	private void conquistarTesoro(Explorador e) {
 		// TODO 
-		if(this.hayTesoroDeEquipoContrario(e)){
-			//Conquistar tesoro
-		}
+		//Si el tesoro es de equipo contrario, lo conquista		
 	}
 
-	private boolean hayTesoroDeEquipoContrario(Explorador e) {
-		// TODO 
-		return false;
+	private boolean hayTesoroEnPosicion(Posicion p) {
+		boolean ret = false;
+		
+		for(Posicion pos: this.posiciones){
+			if(pos.equals(p)){
+				ret = pos.tieneTesoro();
+				break;
+			}
+		}
+		
+		return ret;
 	}
 
 	/**
@@ -198,8 +204,10 @@ public class Tablero {
 		    System.out.println(e.toString() + " Desbloquado");
 		}
 		e.setPos(p);
-		//Si hay tesoro del equipo contrario lo conquista
-		this.conquistarTesoro(e);
+
+		if(this.hayTesoroEnPosicion(e.getPos())){
+			this.conquistarTesoro(e);
+		}
 		notifyAll();
 			
 	}
@@ -231,7 +239,10 @@ public class Tablero {
 		    System.out.println(e.toString() + " Desbloquado");
 		}		
 		e.setPos(p);
-		//Si hay tesoro del equipo contrario lo conquista
+		
+		if(this.hayTesoroEnPosicion(e.getPos())){
+			this.conquistarTesoro(e);
+		}
 		notifyAll();		
 	}
 
@@ -250,7 +261,10 @@ public class Tablero {
 		    System.out.println(e.toString() + " Desbloquado");
 		}
 		e.setPos(p);
-		//Si hay tesoro del equipo contrario lo conquista
+		
+		if(this.hayTesoroEnPosicion(e.getPos())){
+			this.conquistarTesoro(e);
+		}
 		notifyAll();			
 	}
 
@@ -269,7 +283,10 @@ public class Tablero {
 		    System.out.println(e.toString() + " Desbloquado");
 		}
 		e.setPos(p);
-		//Si hay tesoro del equipo contrario lo conquista
+		
+		if(this.hayTesoroEnPosicion(e.getPos())){
+			this.conquistarTesoro(e);
+		}
 		notifyAll();
 	}
 	
