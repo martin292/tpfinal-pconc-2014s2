@@ -168,6 +168,18 @@ public class Tablero {
 	public boolean existePos(Posicion p) {
 		return this.posiciones.contains(p);
 	}
+	
+	private void conquistarTesoro(Explorador e) {
+		// TODO 
+		if(this.hayTesoroDeEquipoContrario(e)){
+			//Conquistar tesoro
+		}
+	}
+
+	private boolean hayTesoroDeEquipoContrario(Explorador e) {
+		// TODO 
+		return false;
+	}
 
 	/**
 	 * Mueve al explorador a la derecha (+1 en el eje x)
@@ -181,10 +193,13 @@ public class Tablero {
 		Posicion p = new Posicion(e.getPos().getX()+1,e.getPos().getY());
 		
 		while(this.posOcupada(p)){
+			System.out.println(e.toString() + " Bloquado");
 		    wait();
+		    System.out.println(e.toString() + " Desbloquado");
 		}
 		e.setPos(p);
 		//Si hay tesoro del equipo contrario lo conquista
+		this.conquistarTesoro(e);
 		notifyAll();
 			
 	}
@@ -211,7 +226,9 @@ public class Tablero {
 		Posicion p = new Posicion(e.getPos().getX()-1,e.getPos().getY());
 		
 		while(this.posOcupada(p)){
+			System.out.println(e.toString() + " Bloquado");
 		    wait();
+		    System.out.println(e.toString() + " Desbloquado");
 		}		
 		e.setPos(p);
 		//Si hay tesoro del equipo contrario lo conquista
@@ -228,8 +245,9 @@ public class Tablero {
 	public synchronized void moverNorte(Explorador e) throws InterruptedException{		
 		Posicion p = new Posicion(e.getPos().getX(),e.getPos().getY()+1);
 		while(this.posOcupada(p) || !this.celdasContiguasOcupadas(p, e.getTeam())){
-		 
+			System.out.println(e.toString() + " Bloquado");
 		    wait();
+		    System.out.println(e.toString() + " Desbloquado");
 		}
 		e.setPos(p);
 		//Si hay tesoro del equipo contrario lo conquista
@@ -246,7 +264,9 @@ public class Tablero {
 	public synchronized void moverSur(Explorador e) throws InterruptedException{
 		Posicion p = new Posicion(e.getPos().getX(),e.getPos().getY()-1);
 		while(this.posOcupada(p) || !this.celdasContiguasOcupadas(p, e.getTeam())){
+			System.out.println(e.toString() + " Bloquado");
 		    wait();
+		    System.out.println(e.toString() + " Desbloquado");
 		}
 		e.setPos(p);
 		//Si hay tesoro del equipo contrario lo conquista
