@@ -12,6 +12,10 @@ public class Tesoro {
 		this.conquistado = false;
 	}
 	
+	public String toString(){
+		return " Tesoro equipo: " + this.equipo;
+	}
+	
 	//--------------------------------------------------------------------
 	
 	public Posicion getPos() {

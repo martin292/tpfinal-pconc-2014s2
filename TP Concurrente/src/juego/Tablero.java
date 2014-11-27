@@ -88,6 +88,7 @@ public class Tablero {
 			Tesoro tesoro = new Tesoro(posR, e);
 			e.agregarTesoro(tesoro);
 			e.getPosiciones().get(e.getPosiciones().indexOf(posR)).setTieneTesoro(true);
+			System.out.println(tesoro.toString() + posR.toString());
 		}
 	}
 	
@@ -218,8 +219,8 @@ public class Tablero {
 			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
-		//notifyAll();
-		notify();
+		notifyAll();
+		//notify();
 		System.out.println(e.toString() + " Desbloquea a todos los threads");
 			
 	}
@@ -268,8 +269,8 @@ public class Tablero {
 			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
-		//notifyAll();
-		notify();
+		notifyAll();
+		//notify();
 		System.out.println(e.toString() + " Desbloquea a todos los threads");
 	}
 
@@ -296,8 +297,8 @@ public class Tablero {
 			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
-		//notifyAll();
-		notify();
+		notifyAll();
+		//notify();
 		System.out.println(e.toString() + " Desbloquea a todos los threads");
 	}
 
@@ -324,8 +325,8 @@ public class Tablero {
 			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
-		//notifyAll();
-		notify();
+		notifyAll();
+		//notify();
 		System.out.println(e.toString() + " Desbloquea a todos los threads");
 	}
 	
