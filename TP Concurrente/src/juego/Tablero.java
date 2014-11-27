@@ -173,10 +173,10 @@ public class Tablero {
 		
 		if(!e.getTeam().hayTesoroEn(e.getPos()) && e.getTeam() == this.equipoNorte){
 			this.equipoSur.retTesoro(e.getPos()).setConquistado(true);
-			System.out.println("Tesoro conquistado!!!");
+			System.out.println("Tesoro conquistado por " + e.toString());
 		}else if(!e.getTeam().hayTesoroEn(e.getPos()) && e.getTeam() == this.equipoSur){
-			this.equipoSur.retTesoro(e.getPos()).setConquistado(true);
-			System.out.println("Tesoro conquistado!!!");
+			this.equipoNorte.retTesoro(e.getPos()).setConquistado(true);
+			System.out.println("Tesoro conquistado por " + e.toString());
 		}
 		
 	}

@@ -6,7 +6,7 @@ public class Juego {
 	public static void main(String[] args) {
 		
 		//Se crea el tablero
-		Tablero tablero = new Tablero(11);
+		Tablero tablero = new Tablero(5);
 		
 		//Comienza el juego	
 		tablero.start();
