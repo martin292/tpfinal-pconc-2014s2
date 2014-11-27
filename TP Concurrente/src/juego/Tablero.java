@@ -7,7 +7,7 @@ import java.util.Random;
 import javax.management.monitor.Monitor;
 
 public class Tablero {
-	
+		
 	int tamanio;
 	private List<Posicion> posiciones = new ArrayList<Posicion>();
 	private Equipo equipoNorte;
@@ -31,6 +31,10 @@ public class Tablero {
 		this.finSur = new Posicion (t,t);
 		*/
 	}	
+	
+	//************************************************************************************
+	//*** METODOS DE CONSTRUCCION DEL TABLERO ********************************************
+	//************************************************************************************
 	
 	public void crearPosiciones(int t){
 		this.crearPosicionesNorte(t);
@@ -136,6 +140,8 @@ public class Tablero {
 		this.agregarTesoros(e1);
 		this.agregarTesoros(e2);
 	}
+	
+	//************************************************************************************
 
 	
 	//-------------------------------------------------------------
@@ -170,6 +176,10 @@ public class Tablero {
 		return this.posiciones.contains(p);
 	}
 	
+	/**
+	 * Conquista el tesoro del equipo contrario del explorador e en la Posicion actual del explorador
+	 * @param e
+	 */
 	private void conquistarTesoro(Explorador e) {
 		
 		if(!e.getTeam().hayTesoroEn(e.getPos()) && e.getTeam() == this.equipoNorte){
@@ -182,6 +192,11 @@ public class Tablero {
 		
 	}
 
+	/**
+	 * Retorna true si hay un tesoro en la posicion p
+	 * @param p
+	 * @return
+	 */
 	private boolean hayTesoroEnPosicion(Posicion p) {
 		boolean ret = false;
 		
@@ -225,6 +240,12 @@ public class Tablero {
 			
 	}
 
+	/**
+	 * Retorna una Posicion de la coleccion de posiciones del tablero
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	private Posicion retPos(int x, int y) {
 		for(Posicion p: this.posiciones){
 			if(p.getX() == x && p.getY() == y){
@@ -331,7 +352,7 @@ public class Tablero {
 	}
 	
 	/**
-	 * Retorna true si las celdas laterales estan desocupadas
+	 * Retorna true si al menos una de las celdas contiguas laterales o traseras estan ocupadas
 	 * @param x
 	 * @param y
 	 * @return
@@ -349,20 +370,16 @@ public class Tablero {
 
 	public List<Posicion> getPosiciones(){
 		return this.posiciones;
-	}
-	
+	}	
 	public int getTamanio() {
 		return tamanio;
 	}
-
 	public Equipo getNorte() {
 		return this.equipoNorte;
-	}
-	
+	}	
 	public Equipo getSur() {
 		return this.equipoSur;
-	}
-	
+	}	
 	/*
 	public int getInicioN() {
 		return inicioN;

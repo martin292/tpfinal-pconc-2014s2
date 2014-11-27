@@ -63,8 +63,9 @@ public class Explorador extends Thread{
 		if(this.tablero.existePos(posAux)){	
 			System.out.println(this.toString() + " De posicion: " + pos.toString() + " intente mover derecha");
 			this.tablero.moverDer(this);			
+		 }else{
+			//Cuando un participante intenta un movimiento que lo llevaria fuera del tablero, se entera de que esta en el borde.
 		 }
-		//Cuando un participante intenta un movimiento que lo llevaria fuera del tablero, se entera de que esta en el borde.
 	}
 	
 	/**
@@ -78,8 +79,9 @@ public class Explorador extends Thread{
 		if(this.tablero.existePos(posAux)){
 			System.out.println(this.toString() + " De posicion: " + pos.toString() + " intente mover izquierda");
 			this.tablero.moverIzq(this);
+		 }else{
+			//Cuando un participante intenta un movimiento que lo llevaria fuera del tablero, se entera de que esta en el borde.
 		 }
-		//Cuando un participante intenta un movimiento que lo llevaria fuera del tablero, se entera de que esta en el borde.
 	}
 	
 	/**
@@ -93,8 +95,9 @@ public class Explorador extends Thread{
 		if(this.tablero.existePos(posAux)){
 			System.out.println(this.toString() + " De posicion: " + pos.toString() + " intente mover arriva");
 			this.tablero.moverNorte(this);
+		 }else{
+			//Cuando un participante intenta un movimiento que lo llevaria fuera del tablero, se entera de que esta en el borde.
 		 }
-		//Cuando un participante intenta un movimiento que lo llevaria fuera del tablero, se entera de que esta en el borde.
 	}
 	
 	/**
@@ -108,9 +111,9 @@ public class Explorador extends Thread{
 		if(this.tablero.existePos(posAux)){
 			System.out.println(this.toString() + " De posicion: " + pos.toString() + " intente mover abajo");
 			this.tablero.moverSur(this); 
+		 }else{
+			//Cuando un participante intenta un movimiento que lo llevaria fuera del tablero, se entera de que esta en el borde.
 		 }
-		//Cuando un participante intenta un movimiento que lo llevaria fuera del 
-		//tablero, se entera de que esta en el borde.
 	}
 	
 	public String toString(){

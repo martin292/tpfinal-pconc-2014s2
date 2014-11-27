@@ -65,6 +65,11 @@ public class Equipo extends Thread{
 	}
 	
 
+	/**
+	 * Retorna true si hay un tesoro en esa Posicion
+	 * @param p
+	 * @return
+	 */
 	public boolean hayTesoroEn(Posicion p) {
 		boolean ret = false;
 		
@@ -78,6 +83,11 @@ public class Equipo extends Thread{
 		return ret;
 	}
 
+	/**
+	 * Retorna el tesoro que se encuentra en la Posicion pos
+	 * @param pos
+	 * @return
+	 */
 	public Tesoro retTesoro(Posicion pos) {
 		for(Tesoro t: this.tesoros){
 			if(t.getPos().equals(pos)){
