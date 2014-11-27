@@ -122,6 +122,7 @@ public class Tablero {
 			Explorador explorador = new Explorador(posR, e, this, cantExploradores);
 			e.agregarExplorador(explorador);
 			e.getPosiciones().get(e.getPosiciones().indexOf(posR)).setTieneExplorador(true);
+			System.out.println(explorador.toString() + " " + posR.toString());
 		}
 	}
 	
@@ -333,8 +334,10 @@ public class Tablero {
 	private boolean celdasContiguasOcupadas(Posicion p, Equipo e) {
 		Posicion posDer = new Posicion(p.getX()+1, p.getY());
 		Posicion posIzq = new Posicion(p.getX()-1, p.getY());
+		Posicion posTraseraDer = new Posicion(p.getX()+1, p.getY()-1);
+		Posicion posTraseraIzq = new Posicion(p.getX()-1, p.getY()-1);
 		
-		return e.estaOcupada(posDer) || e.estaOcupada(posIzq); 
+		return e.estaOcupada(posDer) || e.estaOcupada(posIzq) || e.estaOcupada(posTraseraDer) || e.estaOcupada(posTraseraIzq);
 	}
 		
 	//--------------------------------------------------------------------
