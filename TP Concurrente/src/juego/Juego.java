@@ -10,6 +10,5 @@ public class Juego {
 		
 		//Comienza el juego	
 		tablero.start();
-				
 	}
 }

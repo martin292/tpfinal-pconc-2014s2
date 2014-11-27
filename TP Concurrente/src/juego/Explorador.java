@@ -21,10 +21,11 @@ public class Explorador extends Thread{
 	 * IZQUIERDA -> 2
 	 * NORTE     -> 3
 	 * SUR       -> 4
+	 * NADA      -> 5
 	 */
 	public void run(){
 		while(!this.team.todosMisTesorosConquistados()){
-			int num = 1 + (int)(Math.random()*4);
+			int num = 1 + (int)(Math.random()*5);
 			try{
 				switch(num) {
 				  case 1: 
@@ -38,6 +39,9 @@ public class Explorador extends Thread{
 					  break;
 				  case 4: 
 					  this.moverSur();
+					  break;
+				  case 5:
+					  //Se queda en el lugar
 					  break;
 					}
 				} catch(InterruptedException e){
