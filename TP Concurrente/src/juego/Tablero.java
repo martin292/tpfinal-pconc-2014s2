@@ -218,7 +218,8 @@ public class Tablero {
 			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
-		notifyAll();
+		//notifyAll();
+		notify();
 		System.out.println(e.toString() + " Desbloquea a todos los threads");
 			
 	}
@@ -267,7 +268,8 @@ public class Tablero {
 			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
-		notifyAll();
+		//notifyAll();
+		notify();
 		System.out.println(e.toString() + " Desbloquea a todos los threads");
 	}
 
@@ -294,7 +296,8 @@ public class Tablero {
 			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
-		notifyAll();
+		//notifyAll();
+		notify();
 		System.out.println(e.toString() + " Desbloquea a todos los threads");
 	}
 
@@ -321,7 +324,8 @@ public class Tablero {
 			System.out.println("Hay Tesoro");
 			this.conquistarTesoro(e);
 		}
-		notifyAll();
+		//notifyAll();
+		notify();
 		System.out.println(e.toString() + " Desbloquea a todos los threads");
 	}
 	
