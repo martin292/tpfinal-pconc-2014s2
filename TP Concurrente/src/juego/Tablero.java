@@ -223,8 +223,8 @@ public class Tablero {
 		while(this.posOcupada(p)){
 			System.out.println(e.toString() + " Bloquado");
 		    wait();
-		    System.out.println(e.toString() + " Desbloquado");
 		}
+				
 		e.getPos().setTieneExplorador(false);
 		p.setTieneExplorador(true);
 		e.setPos(p);
@@ -279,8 +279,8 @@ public class Tablero {
 		while(this.posOcupada(p)){
 			System.out.println(e.toString() + " Bloquado");
 		    wait();
-		    System.out.println(e.toString() + " Desbloquado");
 		}
+				
 		e.getPos().setTieneExplorador(false);
 		p.setTieneExplorador(true);
 		e.setPos(p);
@@ -307,8 +307,8 @@ public class Tablero {
 		while(this.posOcupada(p) || !this.celdasContiguasOcupadas(p, e.getTeam())){
 			System.out.println(e.toString() + " Bloquado");
 		    wait();
-		    System.out.println(e.toString() + " Desbloquado");
 		}
+				
 		e.getPos().setTieneExplorador(false);
 		p.setTieneExplorador(true);
 		e.setPos(p);
@@ -335,8 +335,8 @@ public class Tablero {
 		while(this.posOcupada(p) || !this.celdasContiguasOcupadas(p, e.getTeam())){
 			System.out.println(e.toString() + " Bloquado");
 		    wait();
-		    System.out.println(e.toString() + " Desbloquado");
 		}
+				
 		e.getPos().setTieneExplorador(false);
 		p.setTieneExplorador(true);
 		e.setPos(p);
